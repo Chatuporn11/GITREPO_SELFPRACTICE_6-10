@@ -1,0 +1,54 @@
+1. การเข้าถึงเอกสาร (Root Node)
+document คือจุดเริ่มต้นของ DOM ทั้งหมด
+window.document กับ document คือ object เดียวกัน
+typeof document = "object"
+document.documentElement คือ <html> (root element ของหน้าเว็บ)
+
+
+2. ความสัมพันธ์ของ Node
+<html> ไม่มี parentElement (เพราะเป็น root element)
+แต่มี parentNode เป็น document
+document คือ root node ที่สูงสุดสุดใน DOM tree
+
+
+3. การไล่หาลูกหรือพี่น้อง (Node Traversal)
+.firstChild และ .lastChild จะนับทุกชนิดของ node (รวม text, comment, doctype)
+.firstElementChild และ .lastElementChild จะนับเฉพาะ element เท่านั้น
+.nextSibling และ .previousSibling ใช้เลื่อนไปยัง node ถัดไปหรือก่อนหน้าในระดับเดียวกัน
+
+
+4. การเข้าถึงลูกของ Element
+childNodes คืนค่าเป็น NodeList (รวมทุกประเภท node, ใช้ forEach ได้)
+children คืนค่าเป็น HTMLCollection (เฉพาะ element, ต้องใช้ for หรือ Array.from ก่อนใช้ forEach)
+ใช้เพื่อวนดู element ลูกทั้งหมดของ tag นั้น ๆ
+
+
+5. การดูและจัดการ Attribute
+.attributes คืนค่าเป็นรายการของทุก attribute ใน element
+ใช้ .name เพื่อดูชื่อ และ .value เพื่อดูค่า
+.setAttribute(name, value) ใช้เพิ่มหรือเปลี่ยนค่า attribute
+.ownerElement คือ element ที่ attribute นั้นเป็นของ
+
+
+6. การตรวจสอบชนิดของ Node
+.nodeType บอกชนิดของ node
+1 → ELEMENT_NODE
+3 → TEXT_NODE
+8 → COMMENT_NODE
+9 → DOCUMENT_NODE
+10 → DOCUMENT_TYPE_NODE (เช่น <!DOCTYPE html>)
+ใช้เพื่อแยกว่ากำลังทำงานกับ node ประเภทไหน เช่น ถ้าเป็น element ก็แสดงข้อความเฉพาะได้
+
+
+7. การสร้างและเพิ่ม Element ใหม่
+document.createElement("p") → สร้างแท็ก <p>
+pElement.setAttribute("id", "p5") → เพิ่ม id ให้
+pElement.textContent = "#5" → ใส่ข้อความภายใน
+document.body.appendChild(pElement) → นำ element ไปแสดงในหน้าเว็บ
+นี่คือขั้นตอนพื้นฐานของ การสร้าง element แบบ dynamic ด้วย JavaScript
+
+
+8. การอ่านค่าภายในแท็ก
+innerHTML → ดึงหรือแก้ไขข้อความพร้อมแท็ก HTML
+innerText → ดึงเฉพาะข้อความที่มองเห็นบนหน้าเว็บ (ไม่รวมที่ซ่อนด้วย CSS)
+textContent → ดึงข้อความทั้งหมด (ไม่สนว่าแสดงหรือไม่)

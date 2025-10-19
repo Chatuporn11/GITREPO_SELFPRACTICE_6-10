@@ -1,0 +1,38 @@
+1. prompt() แสดงกล่องให้พิมพ์ข้อความ
+confirm() ให้เลือก OK / Cancel (คืนค่า true/false)
+alert() แสดงข้อความ
+ใช้เช็กค่าด้วย .trim() เพื่อกันกรณีผู้ใช้กรอกช่องว่างเฉย ๆ
+prompt รับข้อมูล, confirm ยืนยัน, alert แสดงผล
+
+
+2. เลือก <button> ที่อยู่ใน <div>
+จากนั้นมีสองแบบในการเพิ่ม event handler
+
+ 2.1ใช้ฟังก์ชันนิพจน์ (ไม่มีชื่อ) ไม่สามารถ removeEventListener() ได้เพราะไม่สามารถอ้างถึง function เดิมได้
+ 2.2ใช้ฟังก์ชันที่มีชื่อ (เช่น handlerButton) สามารถนำออกได้ภายหลัง ใช้ named function ถ้าอยากเพิ่ม-ลบ event handler ได้ภายหลัง
+
+
+3. เมื่อคลิกปุ่ม → event จะวิ่งจาก body → div → button (capturing phase) แล้วกลับจาก button → div → body (bubbling phase)
+event.eventPhase มีค่า:
+1 = capturing
+2 = target
+3 = bubbling
+Event มีลำดับการไหลผ่าน element หลายชั้น ค่า eventPhase ช่วยดูว่ากำลังอยู่ในช่วงไหน
+
+
+4. e.preventDefault() หยุดพฤติกรรมปกติ เช่น ลิงก์ไม่เปลี่ยนหน้า ใช้เมื่ออยากควบคุมเอง เช่น ส่งข้อมูลก่อนเปลี่ยนหน้า
+preventDefault() ป้องกันการทำงานเริ่มต้นของ element
+
+
+5. blur คือ event ที่เกิดเมื่อ input เสีย focus (คลิกออก) e.target คือ input ที่ trigger event 
+ใช้เช็กว่าผู้ใช้กรอกข้อมูลหรือไม่  blur ใช้ตรวจช่องว่างเมื่อผู้ใช้พิมพ์เสร็จ
+
+
+6. keyup เกิดเมื่อปล่อยปุ่มที่กด  ใช้ keyup เพื่อจับว่าผู้ใช้พิมพ์ปุ่มอะไร
+event.key → ตัวอักษรจริง เช่น "a"
+event.code → ปุ่มบนแป้น เช่น "KeyA"
+
+
+7. input event ทำงานทุกครั้งที่ค่าของช่องเปลี่ยน (พิมพ์, ลบ, paste ฯลฯ) เหมาะกับกรณีที่อยากแสดงผลแบบ real-time
+input คือ event ที่ตอบสนองต่อทุกการเปลี่ยนค่าใน input
+

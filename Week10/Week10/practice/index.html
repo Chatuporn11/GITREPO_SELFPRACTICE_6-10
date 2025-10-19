@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Preferences</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-size: medium;
+            transition: 0.3s;
+
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+
+        }
+
+        select,
+        input,
+        button {
+            margin: 10px;
+            padding: 8px;
+            font-size: 1em;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>ตั้งค่าหน้าเว็บ</h2>
+        <label>Background Color: </label>
+        <input type="color" id="bgColor" value="#ffffff"><br>
+        <label>Font Color: </label>
+        <input type="color" id="fontColor" value="#000000"><br>
+        <label>Font Size: </label>
+        <select id="fontSize">
+            <option value="small">Small</option>
+            <option value="medium" selected>Medium</option>
+            <option value="large">Large</option>
+        </select><br>
+        <button id="saveBtn">Save</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

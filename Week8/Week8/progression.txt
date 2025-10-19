@@ -1,0 +1,19 @@
+1. childNodes จะคืนค่าเป็น NodeList (คล้าย array แต่ไม่ใช่ array จริง)
+รวมทุกชนิด node เช่น:
+<li> (element)
+text node (ช่องว่าง / ขึ้นบรรทัด)
+comment node ถ้ามี
+.forEach() ใช้ได้กับ NodeList
+ใช้เพื่อดูว่า <ul> มีลูกกี่ node และเป็น node ประเภทไหนบ้าง
+
+
+2. document.querySelectorAll('li.meat') → เลือก <li> ที่มี class "meat"
+.textContent → ดึงข้อความภายในแท็ก
+.includes('soup') → เช็กว่ามีคำว่า "soup" อยู่ไหม (ใช้ .toLowerCase() เพื่อไม่สนตัวพิมพ์ใหญ่เล็ก)
+ถ้ามี ให้ console.log() แสดงข้อความของ element นั้น
+
+
+3. firstElementChild → ลูกตัวแรกที่เป็น element (ไม่เอา text node)
+ใช้ while เพื่อวนดูพี่น้องทั้งหมด (nextElementSibling)
+outerHTML แสดงทั้งแท็กพร้อมเนื้อหา เช่น
+<li class="meat">Spicy Bacon-Corn Soup</li>
